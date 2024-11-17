@@ -1,4 +1,4 @@
 export function getUserDetails() {
-    let user = JSON.parse(localStorage.getItem('toDoAppUser'));
+    let user = JSON.parse(sessionStorage.getItem('toDoAppUser'));
     return user;
 }
