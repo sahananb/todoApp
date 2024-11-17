@@ -33,11 +33,8 @@ function ToDoList() {
       let user = getUserDetails();
       console.log(user?.userId);
       const response = await ToDoServices.getAllToDo(user?.userId);
-      const data = Array.isArray(response.data) ? response.data : [];
-      // console.log(response.data);
-      // setAllToDo(response.data);
-      console.log(data);
-      setAllToDo(data);
+      console.log(response.data);
+      setAllToDo(response.data);
     }catch(err){
       console.log(err);
       message.error(getErrorMessage(err));
@@ -58,33 +55,33 @@ function ToDoList() {
 
   },[navigate]);
 
-  // useEffect(()=>{
-  //   const incomplete = allToDo.filter((item)=>item.isCompleted===false);
-  //   const complete = allToDo.filter((item)=>item.isCompleted===true);
-  //   setInCompletedToDo(incomplete);
-  //   setCompletedToDo(complete);
-  //   if(currentTaskType==='incomplete'){
-  //     setCurrentTodoTask(incomplete);
-  //   }else{
-  //     setCurrentTodoTask(complete);
-  //   }
-  // },[allToDo,currentTaskType]);
-
-  useEffect(() => {
-    if (Array.isArray(allToDo)) {
-      const incomplete = allToDo.filter((item) => item.isCompleted === false);
-      const complete = allToDo.filter((item) => item.isCompleted === true);
-      setInCompletedToDo(incomplete);
-      setCompletedToDo(complete);
-      if (currentTaskType === 'incomplete') {
-        setCurrentTodoTask(incomplete);
-      } else {
-        setCurrentTodoTask(complete);
-      }
-    } else {
-      console.error("allToDo is not an array:", allToDo);
+  useEffect(()=>{
+    const incomplete = allToDo.filter((item)=>item.isCompleted===false);
+    const complete = allToDo.filter((item)=>item.isCompleted===true);
+    setInCompletedToDo(incomplete);
+    setCompletedToDo(complete);
+    if(currentTaskType==='incomplete'){
+      setCurrentTodoTask(incomplete);
+    }else{
+      setCurrentTodoTask(complete);
     }
-  }, [allToDo, currentTaskType]);
+  },[allToDo,currentTaskType]);
+
+  // useEffect(() => {
+  //   if (Array.isArray(allToDo)) {
+  //     const incomplete = allToDo.filter((item) => item.isCompleted === false);
+  //     const complete = allToDo.filter((item) => item.isCompleted === true);
+  //     setInCompletedToDo(incomplete);
+  //     setCompletedToDo(complete);
+  //     if (currentTaskType === 'incomplete') {
+  //       setCurrentTodoTask(incomplete);
+  //     } else {
+  //       setCurrentTodoTask(complete);
+  //     }
+  //   } else {
+  //     console.error("allToDo is not an array:", allToDo);
+  //   }
+  // }, [allToDo, currentTaskType]);
 
   const handleSubmitTask = async () => {
     setLoading(true);
