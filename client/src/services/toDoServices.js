@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {getUserDetails} from '../util/GetUser'
 
-const SERVER_URL = 'https://planit-gvhi.onrender.com';
+const SERVER_URL = 'https://planit-gvhi.onrender.com/api/todo';
 
 const authHeaders = () => {
     let userToken = getUserDetails()?.token;
