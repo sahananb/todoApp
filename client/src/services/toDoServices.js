@@ -5,7 +5,7 @@ const SERVER_URL = 'https://planit-gvhi.onrender.com/api/todo';
 
 const authHeaders = () => {
     let userToken = getUserDetails()?.token;
-    return {headers:{'Authorization':`Bearer ${userToken}`}}
+    return {headers:{'Authorization':userToken}}
 }
 
 const createToDo = (data)=>{
