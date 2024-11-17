@@ -55,6 +55,8 @@ function ToDoList() {
   },[navigate]);
 
   useEffect(()=>{
+    console.log(allToDo);
+    console.log(Array.isArray(allToDo));
     const incomplete = allToDo.filter((item)=>item.isCompleted===false);
     const complete = allToDo.filter((item)=>item.isCompleted===true);
     setInCompletedToDo(incomplete);
