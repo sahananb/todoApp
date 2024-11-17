@@ -38,6 +38,7 @@ function ToDoList() {
     }catch(err){
       console.log(err);
       message.error(getErrorMessage(err));
+      setAllToDo([]);
     }
   };
 
@@ -55,8 +56,6 @@ function ToDoList() {
   },[navigate]);
 
   useEffect(()=>{
-    console.log(allToDo);
-    console.log(Array.isArray(allToDo));
     const incomplete = allToDo.filter((item)=>item.isCompleted===false);
     const complete = allToDo.filter((item)=>item.isCompleted===true);
     setInCompletedToDo(incomplete);
