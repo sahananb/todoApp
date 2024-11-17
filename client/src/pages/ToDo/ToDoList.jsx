@@ -33,8 +33,11 @@ function ToDoList() {
       let user = getUserDetails();
       console.log(user?.userId);
       const response = await ToDoServices.getAllToDo(user?.userId);
-      console.log(response.data);
-      setAllToDo(response.data);
+      const data = Array.isArray(response.data) ? response.data : [];
+      // console.log(response.data);
+      // setAllToDo(response.data);
+      console.log(data);
+      setAllToDo(data);
     }catch(err){
       console.log(err);
       message.error(getErrorMessage(err));
