@@ -53,17 +53,33 @@ function ToDoList() {
 
   },[navigate]);
 
-  useEffect(()=>{
-    const incomplete = allToDo.filter((item)=>item.isCompleted===false);
-    const complete = allToDo.filter((item)=>item.isCompleted===true);
-    setInCompletedToDo(incomplete);
-    setCompletedToDo(complete);
-    if(currentTaskType==='incomplete'){
-      setCurrentTodoTask(incomplete);
-    }else{
-      setCurrentTodoTask(complete);
+  // useEffect(()=>{
+  //   const incomplete = allToDo.filter((item)=>item.isCompleted===false);
+  //   const complete = allToDo.filter((item)=>item.isCompleted===true);
+  //   setInCompletedToDo(incomplete);
+  //   setCompletedToDo(complete);
+  //   if(currentTaskType==='incomplete'){
+  //     setCurrentTodoTask(incomplete);
+  //   }else{
+  //     setCurrentTodoTask(complete);
+  //   }
+  // },[allToDo,currentTaskType]);
+
+  useEffect(() => {
+    if (Array.isArray(allToDo)) {
+      const incomplete = allToDo.filter((item) => item.isCompleted === false);
+      const complete = allToDo.filter((item) => item.isCompleted === true);
+      setInCompletedToDo(incomplete);
+      setCompletedToDo(complete);
+      if (currentTaskType === 'incomplete') {
+        setCurrentTodoTask(incomplete);
+      } else {
+        setCurrentTodoTask(complete);
+      }
+    } else {
+      console.error("allToDo is not an array:", allToDo);
     }
-  },[allToDo,currentTaskType]);
+  }, [allToDo, currentTaskType]);
 
   const handleSubmitTask = async () => {
     setLoading(true);
