@@ -4,11 +4,12 @@ const {Schema} = mongoose;
 const toDoSchema = new Schema({
     title:{type:String, required:true},
     description:{type:String, required:true},
-    isCompleted:{type:Boolean, required:true},
+    isCompleted:{type:Boolean, required:true, default:false},
     completedOn:String,
     createdBy:{
         ref: "User",
-        type: Schema.ObjectId
+        type: Schema.ObjectId,
+        required: true
     }
 },
 {
