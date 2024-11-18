@@ -14,12 +14,12 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname,'client/build')));
 
+app.use('/api',authRoutes);
+app.use('/api/todo',toDoRoutes);
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client','build', 'index.html'));
   });
-
-app.use('/api',authRoutes);
-app.use('/api/todo',toDoRoutes);
 
 mongoose.connect(process.env.DB_URL).then((result)=>{
     console.log("DB Connected Successfully");

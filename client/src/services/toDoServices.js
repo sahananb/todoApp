@@ -13,7 +13,7 @@ const createToDo = (data)=>{
 }
 
 const getAllToDo = (userId)=>{
-    return axios.get(SERVER_URL+'/get-all-to-do/'+userId,authHeaders());
+    return axios.get(SERVER_URL+'/get-all-to-do/'+userId,authHeaders([]));
 }
 
 const deleteToDo = (id)=>{

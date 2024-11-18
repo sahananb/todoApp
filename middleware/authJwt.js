@@ -10,7 +10,6 @@ const authenticateToken = async (req,res,next) => {
     jwt.verify(token,secretKey,(err,result) => {
         if(err) return res.status(403).send({message:'Token is not valid! Please Login Again'});
         req.user = result;
-        console.log("Authenticated User:", req.user);
         next();
     })
 }

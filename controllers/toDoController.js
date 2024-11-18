@@ -18,9 +18,7 @@ exports.getAllToDo = async (req,res) =>{
 
     try{
         const result = await ToDo.find({createdBy:userId});
-        res.status(201).send({ message: "Created New Task", task: result });
-
-        // res.send(result);
+        res.send(result);
     }catch(err){
         console.log(err);
         res.status(400).send(err);
