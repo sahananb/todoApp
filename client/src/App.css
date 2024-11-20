@@ -133,10 +133,12 @@ nav{
   nav {
     flex-direction: column;
     padding-left: 1rem;
+    padding-top: 1rem;
   }
 
-  .logo_wrapper {
-    margin-bottom: 1rem;
+  .logo-wrapper {
+    margin-bottom: 0.5rem;
+    margin-left: -17rem;
   }
 
   .navigation-menu {
