@@ -46,3 +46,36 @@
 .input_info a:hover{
     text-decoration: underline;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+    .login_card {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login_card {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login_card {
+        width: 90%;
+        padding: 1rem;
+        margin-top: 60px;
+    }
+
+    .login_card h2 {
+        font-size: 1.5rem;
+    }
+
+    .input_wrapper, .input_inline_wrapper {
+        width: 100%;
+    }
+
+    .login_card img {
+        width: 80px;
+    }
+}

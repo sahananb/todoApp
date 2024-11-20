@@ -52,7 +52,6 @@ padding-top: 10px;
 }
 
 
-
 .actionIcon{
     font-size: 1.2ren;
     margin-left: 5px;
@@ -71,4 +70,59 @@ padding-top: 10px;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+    .toDoCard {
+        width: calc(33.33% - 3rem);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .toDoCard {
+        width: calc(50% - 3rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .toDoWrapper {
+        padding: 1rem;
+    }
+
+    .toDoHeader {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .toDoHeader > * {
+        margin-bottom: 1rem;
+    }
+
+    .toDoHeader input {
+        width: 100% !important;
+    }
+
+    .toDoCard {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .toDoCardFooter, .toDoCardHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toDoCardFooter > *, .toDoCardHeader > * {
+        margin-bottom: 0.5rem;
+    }
+
+    .toDoFooterAction {
+        width: 100%;
+        justify-content: space-between;
+    }
 }

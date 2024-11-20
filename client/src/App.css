@@ -123,3 +123,69 @@ nav{
 .secondaryBtn:hover{
   background-color: var(--darkPrimary);
 }
+
+@media screen and (max-width: 768px) {
+
+  body {
+    overflow: auto;
+  }
+
+  nav {
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+
+  .logo_wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .navigation-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .navigation-menu li {
+    width: 100%;
+  }
+
+  .navigation-menu li a {
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  .userInfoNav {
+    margin: 0.5rem 0;
+    width: calc(100% - 2rem);
+    justify-content: center;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    display: block;
+    width: calc(100% - 2rem);
+    margin: 0.5rem 1rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo_wrapper h4 {
+    font-size: 1rem;
+  }
+
+  .navigation-menu li a {
+    font-size: 14px;
+  }
+
+  .userInfoNav {
+    font-size: 12px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
